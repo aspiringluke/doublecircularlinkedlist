@@ -1,0 +1,34 @@
+﻿using EstruturasDados.Classes;
+
+DoubleCircularLinkedList<int> lista = new();
+
+Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
+Console.WriteLine($"Tamanho: {lista.Size()}");
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
+lista.Add(1);
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
+lista.Add(4);
+lista.Add(5);
+lista.Add(3);
+lista.Add(4);
+Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
+Console.WriteLine($"Tamanho: {lista.Size()}");
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
+lista.Remove(4);
+Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
+Console.WriteLine($"Tamanho: {lista.Size()}");
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
+lista.Remove(4);
+Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
+Console.WriteLine($"Tamanho: {lista.Size()}");
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
+lista.Clear();
+Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
+Console.WriteLine($"Tamanho: {lista.Size()}");
+Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
+Console.WriteLine($"Último: {lista.PeekLast()}\n");
