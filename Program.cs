@@ -17,6 +17,10 @@ Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
 Console.WriteLine($"Tamanho: {lista.Size()}");
 Console.WriteLine($"Primeiro: {lista.PeekFirst()}");
 Console.WriteLine($"Último: {lista.PeekLast()}\n");
+foreach(int n in lista)
+{
+    Console.Write(n + " ");
+}
 lista.Remove(4);
 Console.WriteLine($"Está vazia? {lista.IsEmpty()}");
 Console.WriteLine($"Tamanho: {lista.Size()}");

@@ -1,14 +1,20 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EstruturasDados.Classes
 {
-    public class DoubleCircularLinkedList<T> : IDoubleCircularLinkedList<T>
+    public class DoubleCircularLinkedList<T> : IDoubleCircularLinkedList<T>, IEnumerable<T>, IEnumerator<T>
     {
         private int Length = 0;
         private DoubleNode<T>? Head = null;
         private DoubleNode<T>? Tail = null;
+        private DoubleNode<T>? currentIteration = null;
+        private int iterationCouter = 0;
+
+        public T Current => currentIteration.Value;
+        object IEnumerator.Current => Current;
 
         public void Clear()
         {
@@ -108,8 +114,37 @@ namespace EstruturasDados.Classes
                 curr = curr.Next;
                 prev = curr!.Prev;
             }
-            
+
             return false;
+        }
+
+        public bool MoveNext()
+        {
+            this.currentIteration ??= this.Head;
+            this.currentIteration = this.currentIteration.Next;
+            iterationCouter++;
+            return iterationCouter < this.Length && this.currentIteration != null;
+        }
+
+        public void Reset()
+        {
+            currentIteration = null;
+            iterationCouter = 0;
+        }
+        
+        public IEnumerator<T> GetEnumerator()
+        {
+            return (IEnumerator<T>)this;
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("???");
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
